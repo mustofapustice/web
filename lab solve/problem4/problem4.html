@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>indert form</title>
+	<style>
+		body {
+			
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		div.input{
+			background-color: antiquewhite;
+			width: 50%;
+		}
+		h1{
+			text-align: center;
+		}
+		label.email{
+			margin-right:50px ;
+
+		}
+		input{
+			border-radius: 6px;
+
+		}
+		form{
+			padding: 10px;
+		}
+		span.submit{
+			display: flex;
+			justify-content: center;
+			justify-items: center;
+			padding: 5px;
+		}
+		label{
+			font-weight: bold; /* Make labels bold */
+			margin-bottom: 5px; /* Add some space below labels */
+		}
+
+	</style>
+</head>
+
+
+<body>
+	<div class="input">
+		<h1>Personal Details</h1>
+		<form name = "myForm" action="insert.php" method="POST" onsubmit = "return validateForm()">
+
+			<label for="name">First Name : </label>
+			<input type="text" id="name" name="name" placeholder="Enter your name"><br><br>
+			<label id="email" class="email" for="email">Email : </label>
+			<input type="email" id="email" name="email" placeholder="Enter valid email"><br><br>
+			<label for="passward">Passward : </label>
+			<input type="password" id="password" name="password" placeholder="Enter 6 digit password"><br><br>
+
+			<label for = "phone">Phone no:</label>
+			<input type="number" name="phone" id="phone" placeholder="Enter 10 digit phone number:"><br><br>
+
+			<label for="gender">Gender:</label>
+			<input type="radio" name="gender"value="male">
+			<label for="gender">Male</label>
+			<input type="radio" name="gender" value="female">
+			<label for="gender">Female</label><br>
+
+			<span class="submit"><input type="submit" name="submit" value="submit"></span>
+
+		</form>
+	</div>
+
+	<script>
+		function validateForm() {
+// Name validation
+			var name = document.forms["myForm"]["name"].value;
+			if (name.length < 6 || !/^[a-zA-Z]+$/.test(name)) {
+				alert("Name should contain alphabets and the length should not be less than 6 characters.");
+				return false;
+			}
+// Email validation
+			var email = document.forms["myForm"]["email"].value;
+			var emailRegex = /\S+@\S+\.\S+/;
+			if (email == "" || !emailRegex.test(email)) {
+				alert("Please enter a valid email address.");
+				return false;
+			}
+// Phone Number validation
+			var phone = document.forms["myForm"]["phone"].value;
+			var phoneRegex = /^\d{10}$/;
+			if (phone == "" || !phoneRegex.test(phone)) {
+				alert("Please enter a valid phone number with 10 digits only.");
+				return false;
+			}
+// Password validation
+			var password = document.forms["myForm"]["password"].value;
+			if (password == "" || password.length < 6) {
+				alert("Please enter a valid password with length not less than 6 characters.");
+				return false;
+			}
+			alert("Successfully submitted the registration form!");
+			return true;
+		}
+	</script>
+</body>
+
+</html>

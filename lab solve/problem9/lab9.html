@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style type="text/css">
+        body{
+        text-align: center;
+        font-size: 25px;
+        }
+        input{
+        font-size: 20px;
+        }
+        table
+        {
+        margin: auto;
+        font-size: 20px;}
+        </style>
+</head>
+<body>
+    <h2>Student's Registration Form </h2>
+<form method="post"action="lab9.php">
+<table border="1" style="text-align:left" >
+<tr>
+<th >ID</th>
+<td>
+    <input type="text" name="id" required></td>
+</tr>
+<tr>
+<th>Name</th>
+<td><input type="text" name="name" required></td>
+</tr>
+<tr>
+<th>Session</th>
+<td><input type="text" name="session" required></td>
+</tr>
+<tr>
+<th >Phone Number</th>
+<td><input type="text" name="ph_number"></td>
+</tr>
+<tr>
+<th >City</th>
+<td><input type="text" name="city" value="" ></td>
+</tr>
+<tr>
+<th>Gender</th>
+<td>
+    <input type="radio" name="gender" value="Male" checked> Male
+<input type="radio" name="gender" value="Female"> Female
+</td>
+</tr>
+<tr>
+<td colspan="4">
+<input type="submit" name="insert" value="Insert">
+<input type="submit" name="delete" value="Delete">
+<input type="submit" name="update" value="Update">
+<input type="submit" name="select" value="Show">
+</td>
+</tr>
+</table>
+<br>
+<label style="color:red">N.B. </label>
+ 1. To delete a record please enter your ID, Name and Session.<br>
+2. You can update all information except ID Number. <br>
+3.To show all record enter your ID, Name and Session.
+</form>
+
+</body>
+</html>
